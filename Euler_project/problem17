@@ -1,0 +1,74 @@
+#python3.6
+
+"""
+Number letter counts
+
+If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
+
+If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
+
+NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
+"""
+from math import *
+from time import time
+
+numbers_dict = {1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',10:'ten',11:'eleven',12:'twelve',13:'thirteen' , 14:'fourteen' ,15:'fifteen' ,16:'sixteen' , 17:'seventeen' , 18:'eighteen' , 19:'nineteen' ,20:'twenty' ,30:'thirty' ,40:'forty' ,50:'fifty' ,60:'sixty' ,70:'seventy' ,80:'eighty' ,90:'ninety' ,100:'hundred',1000000:'million',1000:'thousand'}
+
+
+def convertToString(number):
+    limit = ceil(ceil(log10(number+1))/3)       
+    result = []    
+    for i in range(0,limit,1):      
+        temp = str(number)[::-1][3*i:3*i+3]
+        temp_text = ''
+        """3-DIGIT NUMBER: this section deal with 3 digit number"""
+        try:
+            if temp[2] == '0':
+                pass
+            else:
+                temp_text += numbers_dict[int(temp[2])]+numbers_dict[100]
+                #this line is used to compliance with British usage.
+                try :
+                    if int(temp[1]) * 10 + int(temp[0]) > 0:           
+                        temp_text += 'and'
+                except :
+                    pass
+        except:
+            pass
+        try:
+            if temp[1] == '0':
+                if temp[0] == '0':
+                    pass
+                else:
+                    temp_text += numbers_dict[int(temp[0])]
+            elif temp[1] == '1':                           
+                temp_text += numbers_dict[int(temp[1])*10 + int(temp[0])]
+            else:
+                #print('are we here')     
+                temp_text += numbers_dict[int(temp[1])*10]
+                if temp[0] == '0':
+                    pass
+                else:
+                    temp_text += numbers_dict[int(temp[0])]
+        except:            
+            temp_text += numbers_dict[int(temp[0])]
+            pass
+        """3-DIGIT NUMBER: this section deal with 3 digit number"""
+        if i > 0:
+            """here there is a mistake for over million number"""
+            temp_text += numbers_dict[1000**i]
+        result.append(temp_text)        
+    result = result[::-1]
+    
+    return ''.join(result)
+    
+start = time()
+print(convertToString(200))
+counter =0
+for i in range(1,1001):
+    counter += len(convertToString(i))
+
+#it count 21124
+print(counter)
+print('{:.3f} sec'.format(time()-start))
+# answer is: 21124

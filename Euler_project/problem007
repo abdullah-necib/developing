@@ -1,0 +1,39 @@
+#python3.6
+"""
+
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+What is the 10 001st prime number?
+"""
+from time import time
+"""Note 1 is not considered prime number but i used it like prime"""
+def it_is_prime(n,primes):
+    """this function will check if the number is have divisor in the provided primes list return True or False"""
+    for i in primes:
+        if n % i == 0:
+            return False
+    return True
+
+primes = [1,2,3,5,7]
+def prime_counter(counter):    
+    if counter <= len(primes):
+        return primes[counter-1]
+    else:
+        temp = primes[-1]+2
+        while counter > len(primes):
+            if it_is_prime(temp,primes[1:]):
+                primes.append(temp)
+            temp = temp+2
+    return primes[-1]
+            
+            
+"""execution steps"""
+
+start = time()
+"""---------------"""
+print(prime_counter(1))
+print(prime_counter(10002))
+
+"""---------------"""
+print('{0:.2f} sec'.format(time()-start))
+

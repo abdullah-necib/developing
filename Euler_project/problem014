@@ -1,0 +1,67 @@
+#python3.6
+"""
+The following iterative sequence is defined for the set of positive integers:
+
+n → n/2 (n is even)
+n → 3n + 1 (n is odd)
+
+Using the rule above and starting with 13, we generate the following sequence:
+13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+
+It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
+
+Which starting number, under one million, produces the longest chain?
+
+NOTE: Once the chain starts the terms are allowed to go above one million.
+"""
+#how many time the number need to apply 3n + 1 untill reach 2**x because it is the shortest way to reach 1
+from time import ctime
+from time import time
+
+def number_process(n):
+    if n == 1:
+        return 1
+    if n % 2 == 0:
+        return int(n/2)
+    else:
+        return 3*n + 1
+all_result = {}
+all_result[1] = [1]
+all_result[3] = [3,10,5,16,8,4,2,1]
+
+
+def create_chain(number):
+    temp = number
+    result = []
+    result.append(number)
+    while temp > 1 :
+        if temp in all_result.keys():
+            result += all_result[temp][1:]
+            break
+        temp = number_process(temp)
+        result.append(temp)
+    if number not in all_result.keys():
+        all_result[number] = result
+    return result
+
+def max_len(a_dict):
+    max_member = a_dict[1]
+    for i in a_dict.keys():
+        if len(a_dict[i]) > len(max_member):
+            max_member = a_dict[i]
+    return max_member
+
+"""execution start here.... """
+start = time()
+
+
+for i in range(1,1000000):
+    create_chain(i)
+
+a = max_len(all_result)
+
+print('{0} is the max chain length\n{1}\nfor the number {2}'.format(len(a),a,a[0]))
+
+print('{:.3f} sec'.format(time()-start))
+    
+    

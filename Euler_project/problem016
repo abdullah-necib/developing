@@ -1,0 +1,10 @@
+#python3.6
+
+
+
+text = str(2**1000)
+result = 0
+for i in text:
+    result += int(i)
+    
+print(result)

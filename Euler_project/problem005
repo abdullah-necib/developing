@@ -1,0 +1,80 @@
+#python3.6
+#2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+#What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+
+from time import time
+
+def primes_under_n(n):
+    """this fuction will find all primes numbers that less than or equals n"""
+    result = [1,2,3]
+    i = 5
+    while i < n+1:
+        is_prime = True
+        for prime in result[1:]:            
+            if i % prime == 0:
+                is_prime = False
+                break
+        if is_prime :
+            result.append(i)
+        i = i +2
+    return result
+
+def factors(n):   
+    """find the factors of numbers include 1"""
+    if n == 0:
+        return [0]
+    if n == 1:
+        return [1]
+    root = int(n**0.5)
+    #print(root)
+    primes = primes_under_n(root)
+    #print(primes)
+    factors = []
+    for p in primes[1:]:
+        #print(p)
+        while n % p == 0:
+            factors.append(p)
+            n = int(n/p)
+    if n > 1:
+        factors.append(n)        
+    factors.insert(0,1)
+    factors.sort()
+    return factors
+
+def create_list_of_factors(n):
+    """create a list of lists of factors for each number from 1 till n"""
+    result = []
+    for i in range(1,n+1):
+        result.append(factors(i))
+    return result
+
+def multiplication(a_list):
+    """return the multiplication of all elements in a list"""
+    result = 1
+    for i in a_list:
+        result *=i
+    return result
+
+def divisor_list(n):
+    factors_list = create_list_of_factors(n)
+    result = primes_under_n(n)
+    for factors in factors_list:
+        for i in factors:
+            while result.count(i) < factors.count(i):
+                result.append(i)
+    result.sort()
+    return result    
+            
+
+"""execution area"""
+start_time = time()
+
+#for i in create_list_of_factors(20):
+#    print(i,' ',multiplication(i))
+
+print(divisor_list(20))
+print(multiplication(divisor_list(20)))
+
+progress_time = time()-start_time
+print('{0:.2f} sec'.format(progress_time))

@@ -1,0 +1,116 @@
+#python3.6
+"""
+
+
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+Find the sum of all the primes below two million.
+
+"""
+from time import time
+from math import log10
+
+result = [2,3,5,7]
+
+def is_it_prime(n):
+    root = int(n**0.5)
+    primes_under_root = [x for x in result if x <= root]
+    is_prime = True
+    for i in primes_under_root:
+        if n % i == 0:
+            is_prime = False
+    return is_prime    
+
+def primes_under_n(n):
+    """this fuction will find all primes numbers that less than n"""       
+    if result[-1] >= n:
+        return [x for x in result if x < n]  
+    else:        
+        max_prime = result[-1]        
+        while True:            
+            possible_prime = max_prime + 2
+            if possible_prime >= n:
+                break
+            else:                
+                if is_it_prime(possible_prime) : 
+                    result.append(possible_prime)
+                    max_prime = result[-1]
+                else:                    
+                    """you have to be aware of this assignment"""
+                    max_prime = possible_prime    
+    return result
+
+def print_sum_of_primes(n):
+    print('under {0} primes sum: {1} max value: {2} count: {3}'.format(n,sum(primes_under_n(n)),result[-1],len(result)))
+
+def degree_multiply(n):
+    """find the multiplication of abc number like a*b*c"""
+    degree = int(log10(n))    
+    result = 1
+    while degree >= 0:            
+        number = int(n/10**degree)
+        result *= number
+        n = n - number *10**degree
+        degree -= 1
+    return result
+
+def degree_sum(n):
+    """find the multiplication of abc number like a*b*c"""
+    degree = int(log10(n))    
+    result = 0
+    while degree >= 0:            
+        number = int(n/10**degree)
+        result += number
+        n = n - number *10**degree
+        degree -= 1
+    return result
+
+
+def print_list_as_lines(n, result):        
+    index = 0
+    while index < len(result):
+        string = ''
+        for i in range(n):
+            try:
+                string +='{:6}'.format(result[index+i])
+            except:
+                pass
+        print(string)
+        index +=n
+
+
+counter = 1
+start_time = time()
+print_sum_of_primes(10)
+print('-'*50)
+print('{0:.3f} sec'.format(time()-start_time))
+print('-'*50)
+print_sum_of_primes(100)
+print('-'*50)
+print('{0:.3f} sec'.format(time()-start_time))
+print('-'*50)
+print_list_as_lines(6,result)
+print('-'*50)
+print('{0:.3f} sec'.format(time()-start_time))
+print('-'*50)
+print_sum_of_primes(1000)
+print('-'*50)
+print('{0:.3f} sec'.format(time()-start_time))
+print('-'*50)
+print_sum_of_primes(10000)
+print('-'*50)
+print('{0:.3f} sec'.format(time()-start_time))
+print('-'*50)
+print_sum_of_primes(100000)
+print('-'*50)
+print('{0:.3f} sec'.format(time()-start_time))
+print('-'*50)
+print_sum_of_primes(1000000)
+print('-'*50)
+print('{0:.3f} sec'.format(time()-start_time))
+print('-'*50)
+print_sum_of_primes(2000000)
+print('-'*50)
+print('{0:.3f} sec'.format(time()-start_time))
+print('-'*50)
+
