@@ -3,32 +3,112 @@
     <head lang="en">
         <title>first webpage</title>
         <link crossorigin="anonymous" href="style.css" media="all" type="text/css" rel="stylesheet"/>
-        <meta http-equiv="refresh" content="1"/>
+        <!-- <meta http-equiv="refresh" content="1"/> -->
 <!--         <meta http-equiv="refresh" content="1"/>
  -->
         <style>
+            #hale{
+                color: red;
+                font-size: 50px;
+            }
             h2{
                 color: red;
+                width: 500px;
             }
-            #h1_ {
+            #h1 {
                 color: blue;
+            }
+            hr {
+                border-top: 5px solid;
+                color: red;
             }
         </style>
     </head>
     <body>
-        <h1>add meta with 0 content</h1>
-        <h1>is refresh working ???</h1>
-        <h1 id="h1_" hidden>this is hidden element</h1>
-        <h2>new start</h2>
-        <h1>find another type</h1>
-        <h3>try this </h3>
-        <a href='https://www.google.com'>Google</a>
-        <div>test div</div>
-        <div>hello</div>
-        <div>ty</div>   
-        <div> ifound the way my self</div>
+        <section>
+            <h1 id="hale">HALE MY DEAREST GIRL</h1>
+            <div>here is end of section</div>
+        </section>
+        <hr>
+        <p>main start from here</p>
+        <main>
+            <h1>this is the main content section</h1>
+        </main>
+        <p>main ends here</p>
+        <hr/>
+        <h1>h1 outside the section</h1>
+        <h2>h2 outside the section</h2>
+        <nav>
+            <div>Nav is navigation element is used to group site links together</div>
+            <ul>
+                <li><a href='http://wwww.facebook.com'>Facebook</a></li>
+                <li><a href="https://www.google.com">Goodle</a></li>
+                <li><a href="https://www.tweeter.com">Tweeter</a></li>
+            </ul>
+            <h1>h1 from nav marks the end of it</h1>
+        </nav>
+        <hr>
+        <article>
+            <header>
+                <h1>h1 from header from article</h1>
+            </header>
+            <p>article contents only</p>
+            <footer>
+                <p>here where is footer start</p>
+                <address>
+                    <p>address contents from the article</p>
+                </address>
+            </footer>
 
-        <h1></h1>
+            <h1>here we start the test all the rest need to delete</h1>
+            
+            
+        </article>
+        <hr>
+        <nav> 
+            <h2>example of using nav element from akisasansor.com.tr origianlly marked as menu but it seems the effect of menu is from outside the element itself</h2>
+            <a id="resp-menu" class="responsive-menu" href="#"><i class="fa fa-reorder"></i> Menu</a>
+            <ul class="menu">
+              <li><a class="current" href="anasayfa">ANASAYFA</a> </li>
+  
+              <li><a class="" href="akis-asansor-hakkimizda">KURUMSAL</a>
+                  <ul>
+                      <li><a  href="akis-asansor-hakkimizda"><img src="images/firma-icon.png" width="30" height="30" alt="Firma Profili"> <strong>Firma Profili </strong></a>
+                      <li><a  href="belgeler"><img src="images/belgeler-icon.png" width="30" height="30"  alt="Belgeler"><strong>Belgeler</strong></a>
+                      <li><a  href="kalite-politikasi"><img src="images/kalitepolitikasi-icon.png" width="30" height="30"  alt="Kalite Politikası"><strong >Kalite Politikası</strong> </a>
+                      <li><a  href="akis-asansor-galeri-resimleri"><img src="images/galeri-icon.png" width="30" height="30"  alt="Medya Galeri"> <strong >Foto Galeri</strong> </a>
+                      <li><a  href="akis-asansor-basinda-biz-video-galeri"><img src="images/video-icon.png" width="30" height="30"  alt="Medya Video"><strong >Video Galeri</strong> </a>
+                      <li><a  href="akis-asansor-insan-kaynaklari-formu"><img src="images/insankaynaklari-icon.png" width="30" height="30"  alt="İnsan Kaynakları"><strong> İnsan Kaynakları</strong></a>
+                  </ul>
+              </li>
+            </ul>
+        </nav>
+        <p>we start a new paragraph element</br>
+            <text>here is text</text></br>
+            <inline>here is the inline element</inline>
+        </p>
+        <hr>
+        <blockquote cite="https://www.packtpub.com/">
+            <p>Contact Us</p>
+        </blockquote>
+        <hr>
+        <ol reversed=True start=3 type="I">
+            <li>first item</li>
+            <li>second item</li>
+            <li>third item</li>
+        </ol>
+        <hr>
+        <dl>
+            <dt>PactPub</dt>
+            <dd>Packt Publishing</dd>
+            <dd>check the second item here</dd>
+            <dt>again using dt</dt>
+            <dd>now back to the dd</dd>
+        </dl>
+        <figure>
+            <img src='zf82.jpg' title="figure1"/>
+            <figcaption>this is zf engine</figcaption>
+        </figure>
     </body>
     
 </html>
