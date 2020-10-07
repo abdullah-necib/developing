@@ -39,7 +39,7 @@ print(type(perm_a_2))
 hit = [1  for x in range(20)]
 
 # suppose there is fails like 0 in the following place
-hit[2]=hit[6]=hit[9]=hit[17]=0
+hit[2]=hit[6]=hit[9]=hit[14]=hit[19] = 0
 
 event_prob = [sum(hit[0:i])/i  for i in range(1,len(hit)+1) ]
 for i in range(len(hit)):
@@ -49,5 +49,4 @@ import matplotlib.pyplot as pyplot
 
 pyplot.plot(list(range(20)),event_prob)
 pyplot.show()
-
 
