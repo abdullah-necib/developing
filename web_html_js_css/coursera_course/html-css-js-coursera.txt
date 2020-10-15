@@ -1,0 +1,12 @@
+ 
+https://github.com/jhu-ep-coursera/fullstack-course4
+
+#to start from specific folder
+browser-sync start --server --directory --files "*"
+
+stackoverflow.com
+
+site to write a code and share it with  jsfiddle.net
+
+browser deleoping remoteley :  https://codepen.io/
+website from codepen owner with greate resource    https://css-tricks.com/
