@@ -2,9 +2,10 @@ from itertools import permutations
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as pyplot
-   
-
-
+from math import pi, e,sqrt, factorial
+from numpy.random import choice
+from scipy.stats import bernoulli,binom,poisson, uniform,norm , expon,gamma
+from scipy.integrate import quad
 
 # print(type(perm_a_2))
 
@@ -76,7 +77,6 @@ def test_random_variable_exchange():
 
 
 def test_generating_random_var(choices, probablities, repeat=100):
-    from numpy.random import choice
     result =[]    
     for i in range(repeat):
         result.append(choice(choices,p= probablities))
@@ -89,7 +89,6 @@ def test_generating_random_var(choices, probablities, repeat=100):
 # test_generating_random_var([1,2,3], [0.3,0.5,0.2],1000)
 
 def test_bernoulli():
-    from scipy.stats import bernoulli
     p=0.5
     mean, var, skew, kurt = bernoulli.stats(p,moments='mvsk')
     print(f'mean ={mean}')
@@ -100,10 +99,9 @@ def test_bernoulli():
 
 # test_bernoulli()
 
-def test_binomial():
-    from scipy.stats import binom
-    n=3
-    p=5/15
+def test_binomial():    
+    n=5
+    p=0.6
     r_values = list(range(n+1))
     mean, var = binom.stats(n,p)
     dist = [binom.pmf(r,n,p) for r in r_values]
@@ -111,21 +109,22 @@ def test_binomial():
         print(f'{r_values[i]} \t {dist[i]}')
     print(f'Mean = {mean}')
     print(f'var = {var}')
+    
     pyplot.plot(r_values, dist)
+    print(sum(dist[:4]))
     
 # test_binomial()
 
 def test_poission(u):
-    from scipy.stats import poisson
-    r_values = list(range(10))
+    r_values = list(range(20))
     dst = poisson.pmf(r_values, u)
+    
     for i in r_values:
         print(f'{i} >>> {dst[i]}')
-    pyplot.plot(r_values, dst)
+    # pyplot.plot(r_values, dst)
     return dst
     
-# print(1-sum(test_poission(3)[:3]))
-
+# print(1-sum(test_poission(6)[:17]))
 
 
 # =============================================================================
@@ -133,7 +132,6 @@ def test_poission(u):
 # =============================================================================
 
 def c_uniform():
-    from scipy.stats import uniform
     z = uniform(0,12)
     print(z.stats())
     print(z.mean())
@@ -144,7 +142,6 @@ def c_uniform():
 
 # this is not negative exponent dist but it may be transfer
 def c_negative_exp():
-    from scipy.stats import expon
     z = expon(0.5)
     print(z.mean())
     print(z.var())
@@ -153,7 +150,6 @@ def c_negative_exp():
 # c_negative_exp()
 
 def c_normal_disc():
-    from scipy.stats import norm
     x = [a/100 for a in range(-1000,1000)]
     z= norm()
     y = [z.pdf(a) for a in x]
@@ -165,4 +161,51 @@ def c_normal_disc():
     print(z.cdf(1.28)-z.cdf(-2.01))
     print(z.ppf(0.975)*30+80)
     
-c_normal_disc()
+# c_normal_disc()
+
+def factorial_Drowaing(n):
+    x = [a for a in range(0,n+1)]    
+    y = [factorial(a) for a in x]
+    pyplot.plot(x,y)
+    return y
+
+
+def stirling_formala(n):
+    from math import e, pi, sqrt
+    return sqrt(2*pi*n)*((n/e)**n)
+
+def test_fact_stirling(n):    
+    a = factorial_Drowaing(n)[-1]
+    b = stirling_formala(n)
+    print(f'factorial({n}) = {a} stirling: {b} with {b/a}')
+    
+# for i in range(80):
+#     test_fact_stirling(i)
+    
+    
+def test_gamma_function(n):
+    return quad(lambda x,n: (x**n)*(e**(-x))/x,0,np.inf,args=n)[0]
+
+# a =test_gamma_fucntion(0.5)
+# print(a[0]**2)
+# print(pi)
+
+
+def test_Euler_factorial(n):
+    from scipy.integrate import quad
+    return quad(lambda x,n: (x**n)*(e**(-x)),0,np.inf,args=n)[0]
+
+def test_gamma_function(y,n):  
+    gam = lambda x: (1/factorial(n-1))*(y**n)*(x**(n-1))*(1/e**(y*x))
+    return quad(gam,0,10)
+    
+print(test_gamma_function(0.5, 8)[0])
+
+def test_gamma_pdf(y,n,t1,t2):
+    rv= gamma(a=n,loc=0,scale = 1/y)
+    print(rv.cdf(t2))
+          
+          
+          
+          
+test_gamma_pdf(1/2,8,0,10)
