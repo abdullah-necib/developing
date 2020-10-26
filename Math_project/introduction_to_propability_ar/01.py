@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as pyplot
 from math import pi, e,sqrt, factorial
 from numpy.random import choice
-from scipy.stats import bernoulli,binom,poisson, uniform,norm , expon,gamma
+from scipy.stats import bernoulli,binom,poisson, uniform,norm , expon,gamma,chi2
 from scipy.integrate import quad
 
 # print(type(perm_a_2))
@@ -199,13 +199,35 @@ def test_gamma_function(y,n):
     gam = lambda x: (1/factorial(n-1))*(y**n)*(x**(n-1))*(1/e**(y*x))
     return quad(gam,0,10)
     
-print(test_gamma_function(0.5, 8)[0])
+# print(test_gamma_function(0.5, 8)[0])
 
 def test_gamma_pdf(y,n,t1,t2):
     rv= gamma(a=n,loc=0,scale = 1/y)
     print(rv.cdf(t2))
           
+def chi_test(v1,v2):
+    chi = lambda x:  (e**(-x/2))/2         
+    return quad(chi,v1,v2)    
+
+# print(f'chi_test result is: {chi_test()}')
           
-          
-          
-test_gamma_pdf(1/2,8,0,10)
+def chi_discret(*args,mean = 10):
+    result =0
+    for i in args:
+        # print(f'{i} {mean} --> {((i-mean)**2)/mean}')
+        result += ((i-mean)**2)/mean
+    return result
+
+
+# a = chi_discret(93,116,103,103,93,97,94,95,101,105,mean=100)
+# print(a)
+# print(chi_test(a,np.inf))
+
+
+
+print(1-chi2(1).cdf(3.84))
+
+rv = norm(loc=120, scale=17)
+print(rv.cdf(111))
+print(rv.ppf(0))
+
