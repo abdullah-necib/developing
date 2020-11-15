@@ -1,0 +1,67 @@
+this explantion from stackoverflow.com
+https://stackoverflow.com/questions/57273694/how-selectkbest-chi2-calculates-score
+
+Say you have one feature and a target with 3 possible values
+
+X = np.array([3.4, 3.4, 3. , 2.8, 2.7, 2.9, 3.3, 3. , 3.8, 2.5])
+y = np.array([0, 0, 0, 1, 1, 1, 2, 2, 2, 2])
+
+     X  y
+0  3.4  0
+1  3.4  0
+2  3.0  0
+3  2.8  1
+4  2.7  1
+5  2.9  1
+6  3.3  2
+7  3.0  2
+8  3.8  2
+9  2.5  2
+First we binarize the target
+
+y = LabelBinarizer().fit_transform(y)
+
+     X  y1  y2  y3
+0  3.4   1   0   0
+1  3.4   1   0   0
+2  3.0   1   0   0
+3  2.8   0   1   0
+4  2.7   0   1   0
+5  2.9   0   1   0
+6  3.3   0   0   1
+7  3.0   0   0   1
+8  3.8   0   0   1
+9  2.5   0   0   1
+Then perform a dot product between feature and target, i.e. sum all feature values by class value
+
+observed = y.T.dot(X)
+>>> observed
+array([ 9.8,  8.4, 12.6])
+Next take a sum of feature values and calculate class frequency
+
+feature_count = X.sum(axis=0).reshape(1, -1)
+class_prob = y.mean(axis=0).reshape(1, -1)
+
+>>> class_prob, feature_count
+(array([[0.3, 0.3, 0.4]]), array([[30.8]]))
+Now as in the first step we take the dot product, and get expected and observed matrices
+
+expected = np.dot(class_prob.T, feature_count)
+>>> expected
+array([[ 9.24],[ 9.24],[12.32]])
+Finally we calculate a chi^2 value:
+
+chi2 = ((observed.reshape(-1,1) - expected) ** 2 / expected).sum(axis=0)
+>>> chi2
+array([0.11666667])
+We have a chi^2 value, now we need to judge how extreme it is. For that we use a chi^2 distribution with number of classes - 1 degrees of freedom and calculate the area from chi^2 to infinity to get the probability of chi^2 be the same or more extreme than what we've got. This is a p-value. (using chi square survival function from scipy)
+
+p = scipy.special.chdtrc(3 - 1, chi2)
+>>> p
+array([0.94333545])
+Compare with SelectKBest:
+
+s = SelectKBest(chi2, k=1)
+s.fit(X.reshape(-1,1),y)
+>>> s.scores_, s.pvalues_
+(array([0.11666667]), [0.943335449873492])
