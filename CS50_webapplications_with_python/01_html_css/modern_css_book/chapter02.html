@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chapter 02</title>
+        <style>
+            
+            * {
+                font-family: Arial, sans-serif;
+                color: rgb(82, 81, 81)
+            }
+            [type="button"] {
+                color:black;
+                background-color: rgb(220);
+                border: 3px solid rgb(100);
+            }
+            h1#hea1 {
+                color: red;
+            }
+            #div-test * {
+                color:indigo;
+                font-size: 30px;
+            }
+            .generalsibling + p    {
+                    color:red;
+                }
+            .header ~ div {
+                color:red;
+                font-size:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="hea1">Header 1</h1>
+        <h2>Header 2</h2>
+        <input type="button" value="click me">
+        <div id="div-test">
+            outer div directly
+            <p>this is one paragraph</p>
+            <div>
+                this is div directly
+                <p>this is second paragraph</p>
+            </div>
+            outer div text at the end
+        </div>
+        <div>            
+            <p class="generalsibling">general sibling p</p>
+            <p class="testclass">paragraph adjacent sibling test afftect by ~ and +</p>
+            <p class="testclass">paragraph far sibling test affected only by ~</p>
+            <div class="another example">divsibling to p 'generalsibling' inside</div>
+        </div>
+        <div>
+            <h1>SIBLING TEST</h1>
+            <div class="header">header</div>
+            <div class="body">body</div>
+            <div class="footer">footer</div>
+          </div>
+    </body>
+</html>

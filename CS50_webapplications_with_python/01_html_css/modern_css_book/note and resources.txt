@@ -1,0 +1,4 @@
+https://www.caniuse.com/ 
+used for finding if a browswer support partical feature
+
+https://developer.mozilla.org/en-US/
