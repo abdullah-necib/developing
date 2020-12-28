@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Chapter 03</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <style>
+        :root {
+            --original-bk-color: #053db6;
+        }
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            font-style:normal;
+            font-weight: bold;
+            font-size:24px;
+            /* color: white; */
+        }
+        div > h1 {
+            padding: 1rem;
+            color: var(--original-bk-color);
+        }
+        body > div {
+            color: red;
+            margin: 0.5rem;  
+            padding: 0.2rem;
+            width: 30rem;
+            background-color: #b0b0b0;
+            border: 0.3vmin solid #000000;
+            display:block;
+        }
+
+        #div1 {
+            background-color: hsla(120,100%,50%,1);
+            border: 0.1em solid black;
+            box-sizing: content-box;
+            display: inline;
+        }
+
+        
+        #div3 {
+            background-color:rgb(200,200,044);
+            border: 3px solid red;
+        }
+        .highlight {
+            background-color:rgba(217, 255, 4, 10);
+            margin: 5px;
+            padding:2px;
+            display:inline;
+            opacity:1;
+        }
+    </style>
+    <div>
+        <h1>Main Div start</h1>
+        <div id="div1"> div1 >>> Hello World</div>
+        <div id="div3">div3 >>> Hello World</div>
+        <div>
+            <h1>INLINE ELEMENT SPAN</h1>
+            <div>this is a text from div and only <span class="highlight">SPAN</span> word inside it as span</div>
+        </div>
+        <hr>
+        <div>
+            <h6>TESTING UNITS</h6>
+            <img id="img-units" src="googlelogo_color.png">
+            <style>
+                #img-units {
+                    padding: 1vh;
+                    border:calc(1rem - 2vh) solid #ffff02;
+                }
+            </style>
+        </div>
+        <hr>
+        <div>
+            <h1>testing over flow</h1>
+            <style>
+                .container {
+                    background-color: skyblue;
+                    height: 4rem; /*here is what cause the problem if the content bigger than the heigh of the container */
+                    color: black;
+                    border: 0.5vh solid red;
+                    overflow: auto;
+                    }
+                .container .banner {
+                    background-color: #888888;
+                    width: 20rem;
+                }
+            </style>
+            <div class="container">
+                <div class="banner">this is a banner</div>
+                This is some really long text that will overflow the container. this should be fitted inside conatiner.
+                note that it work for width but it overflow for height because <span class="highlight">height is selected to 2rem</span> at the begin of the text.
+            </div>
+        </div>
+        <h1>Main Div End</h1>
+    </div>
+</body>
+
+</html>

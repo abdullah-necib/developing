@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chapter 05</title>
+    </head>
+    <body style="background-color:#f0f0f0">
+        <div>
+            <P>this is not belong to the main div</P>
+            <ol>this chapter is nice
+                <li>include information about solid background</li>
+                <li>also information about background-image</li>
+            </ol>
+            <h2>this to check if background position changed with addinganother elements</h2>
+        </div>
+        <div id="div-main">
+            <h1>start the main div</h1>
+        </div>
+        <hr>
+        <div id="gradient">
+            <h1>this is test for linear and radial gradient</h1>
+        </div>
+        <div id="radial-grad">
+            <h2>test for radial gradient</h2>
+        </div>
+        <style>
+            #radial-grad {
+                background-image: radial-gradient(circle farthest-side at top left, red,transparent),radial-gradient(blue, white);
+                width:20rem;
+                height: 10rem;
+            }
+            #gradient {
+                background-image: linear-gradient(90deg,red 0%,white 20%,white 50%,orange 80%,white 85%,green 90%);
+                width: 30rem;
+                height: 10rem;
+                padding: 1rem;
+                color:white;
+                text-shadow: 1px 1px black;
+                
+            }
+            #div-main {
+                background-image: radial-gradient(circle at 25rem 10rem, white 0%, transparent 45%), url("beach_view_01.jpeg") ;
+                /* background-color: #a0a0a0; */
+                background-repeat:no-repeat;
+                background-position: center;
+                background-size:100% 100%;
+                background-clip: content-box;
+                width: 30rem;
+                height: 15rem;
+                padding: 1rem;
+                box-shadow: 5px 5px 10px 6px black;
+            }
+            #div-main > h1 {
+                text-shadow: black 2px 2px 2px;
+                color:white;
+                font-size: 1.5rem;
+                padding:5px;
+            }
+        </style>
+    </body>
+</html>

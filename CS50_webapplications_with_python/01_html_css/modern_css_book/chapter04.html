@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chapter 04 Basic Styling</title>
+    </head>
+    <body>
+        <div id="div-start" style="background-color:#a0a0a0;padding:50px">
+            <p>this is a new border with different side</p>
+            <h1>this is test for shadow only</h1>
+            <h2>special shadow</h2>
+            <h3>special border</h3>
+            <div style="background-color: aqua;opacity:0.2;">
+                <p>this is div the container</p>
+                <h1 style="background-color: red;">test h1 with opactiy as children</h1>
+                <div>
+                    <div>
+                        <div style="opacity:1;">
+                            <p style="background-color:mediumorchid;opacity:0.5;">this is from descendant not a child</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                div > div {
+                    
+                }
+                div {
+                    width: 300px;
+                }
+                #div-start > h3 {
+                    color:blue;
+                    box-shadow: 0 0 0 3px red,0 0 0 6px grey,0 0 0 9px black;
+                    border-radius: 10px;
+                    padding: 10px;
+                    background-color:#fffb047f;
+                    /* opacity:0.3; */
+
+                }
+                #div-start > h2 {
+                    margin: 2rem;
+                    padding: 1rem;
+                    box-shadow: 5px -5px 5px 5px red, -5px 5px 5px 5px blue;
+                    border-radius: 10px;
+                }
+                #div-start > h1 {
+                    box-shadow: 5px 5px 0px 10px #777777;
+                    padding: 10px;
+
+                }
+                #div-start > p {
+                    /* border-color: red; */
+                    /* border-style: solid; */
+                    /* border-width: 5rem 1rem 1rem 5rem; */
+                    /* border-top: 1rem;
+                    border-right: 1rem;
+                    border-left-width: 1rem;
+                    border-bottom-width: 1rem; */
+                    border-left:0.25rem solid black;
+                    border-right:0.25rem solid black;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    /* border-top:0.7rem solid black; */
+                    border-top-left-radius: 30px;
+                    border-bottom-right-radius: 30px;
+                    /* border-radius: 30px;; */
+                    box-shadow: 2px 5px 0px #888888;
+                }
+            </style>
+        </div>
+    </body>
+</html>

@@ -1,4 +1,24 @@
+
+CHAPTER 01 INTRODUCTION TO CSS
+
 https://www.caniuse.com/ 
 used for finding if a browswer support partical feature
 
 https://developer.mozilla.org/en-US/
+
+
+CHAPTER 02 CSS SELECTORS
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+used to find details about pseudo classes
+
+
+CHAPTER 03 BASIC CSS CONCEPTS
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+predefinded colors
+
+CHAPTER 06 TEXT STYLING
+https://github.com/typekit/webfontloader
+
+this web can help you to manage the new font download and the whole process of @font-face using on your website

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chapter 6</title>
+    </head>
+    <body>
+        <style>
+            table {
+                border-collapse:collapse;
+                /* border: 2px solid black; */
+            }
+            table * {
+                padding: 4px;
+                border: 2px solid black;
+                font-size:16px;
+                /* font-family: arial, sans-serif; */
+                text-align: center;
+            }
+        </style>
+        <table>
+            <th>Font</th>
+            <th>Family</th>
+            <th>Test</th>
+            <tr style="font-family:Arial, Helvetica, sans-serif;">
+                <td>Arial</td>
+                <td>sans-serif</td>
+                <td>Test Sentece to check the font</th>
+            </tr>
+            <tr style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <td>
+                    trebuchet MS
+                </td>
+                <td></td>
+                <td>Test Sentece to check the font</th>
+            </tr>
+            <tr style="font-family:Verdana, Geneva, Tahoma, sans-serif">
+                <td>verdama</td>
+                <td></td>
+                <td>Test Sentece to check the font</th>
+            </tr>
+            <tr style="font-family: 'Courier New', Courier, monospace;">
+                <td>Courier New</td>
+                <td>monospace</td>
+                <td>Test Sentece to check the font</th>
+            </tr>
+            <tr style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                <td>Georgia</td>
+                <td>serif</td>
+                <td>Test Sentece to check the font</th>
+            </tr>
+            <tr style="font-family:'Times New Roman', Times, serif;">
+                <td>Times New Roman</td>
+                <td></td>
+                <td>Test Sentece to check the font</th>
+            </tr>
+        </table>
+        <style>
+            @font-face{
+                font-family: 'my first font';
+                src:
+                
+            }
+            ol {
+                text-align: justify;
+            }
+            ol > li {
+                font-weight: 100;
+                font-style: normal;
+                text-transform:capitalize;
+                letter-spacing:0px;
+                font-variant: small-caps;
+                
+            }
+        </style>
+        <div style="padding: 50px;text-align: center;">
+
+            <ol style="font-family: arial; ">
+                Font Size:
+                <hr>
+                <li style="font-size:xx-small">this will test xx-small</li>
+                <li style="font-size:x-small">this will test x-small</li>
+                <li style="font-size:smaller">this will test smaller</li>
+                <li style="font-size:small">this will test small</li>
+                <li style="font-size:medium">this will test medium</li>
+                <li style="font-size:large">this will test large</li>
+                <li style="font-size:larger">this will test larger</li>
+                <li style="font-size:x-large">this will test x-large</li>
+                <li style="font-size:xx-large">this will test xx-large</li>
+                <li style="font-size:xxx-large">this will test xxx-large</li>
+            </ol>
+        </div>
+        <div style="text-transform:capitalize; font-variant: small-caps;">
+            test small-caps effect
+        </div>
+        <style>
+            #alignment-test {
+                font-size:30px;
+                width:500px;
+                height:300px;
+                padding: 20px;
+                border: 3px solid red;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .hello {
+                border: 2px solid blue;
+                font-size:2rem;
+            }
+            .world {
+                border:2px solid mediumvioletred;
+                font-size:4rem;
+                vertical-align: middle;
+            }
+        </style>
+        <div id="alignment-test" >
+            <p >this text is intendent to create test alignment and we didn't finish yet it finish here exacty</p>
+            <span class="hello">hello</span>
+            <span class="world">world</span>
+        </div>
+        <style>
+            #test-align {
+                border:3px solid blue;
+                width:25rem;
+                text-align: center;
+            }
+        </style>
+        <div id="test-align">
+            <div style="border:2px solid; padding: 20px;margin:10px;">this is first div</div>
+            <div>this is second div with different size</div>
+        </div>
+    </body>
+</html>
