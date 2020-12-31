@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>cube</title>
+</head>
+
+<body>
+    <style>
+        .container {
+            width: 10rem;
+            height: 10rem;
+            perspective: 500px;
+            margin: 5rem;
+        }
+
+        .cube {
+            transform-style: preserve-3d;
+            position: relative;
+            /* margin: 5rem; */
+            /* perspective:500px; */
+            transform: rotate3d(0.45, 0, 0.45, 30deg);
+        }
+
+        .face {
+            /* margin:4rem; */
+            position: absolute;
+            /* background-color: #f1f1f1; */
+            /* opacity: 0.4; */
+            background-image: linear-gradient(transparent, #f1f1f1);
+            width: 10rem;
+            height: 10rem;
+            color: black;
+            border: 1px solid black;
+            text-align: center;
+            /* padding: 1rem; */
+            /* margin: 1rem; */
+
+        }
+
+        .front {
+            transform: translateZ(5rem);
+        }
+
+        .back {
+            transform: rotatey(180deg) translateZ(5rem);
+        }
+
+        .top {
+            transform: rotatex(90deg) translatez(5rem);
+        }
+
+        .bottom {
+            transform: rotatex(-90deg) translatez(5rem);
+        }
+
+        .right {
+            transform: rotatey(90deg) translatez(5rem);
+        }
+
+        .left {
+            transform: rotatey(-90deg) translatez(5rem);
+        }
+        span {
+            margin: 1rem;
+            padding: 1rem;
+            line-height:10rem;
+        }
+    </style>
+    <div class=container>
+
+        <div class="cube">
+            <div class="face front"><span>Front</span></div>
+            <div class="face back"><span>Back</span></div>
+            <div class="face left"><span>Left</span></div>
+            <div class="face right"><span>Right</span></div>
+            <div class="face top"><span>top</span></div>
+            <div class="face bottom"><span>Bottom</span></div>
+        </div>
+    </div>
+</body>
+
+</html>

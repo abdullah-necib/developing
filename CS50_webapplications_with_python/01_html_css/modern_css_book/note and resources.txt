@@ -22,3 +22,19 @@ CHAPTER 06 TEXT STYLING
 https://github.com/typekit/webfontloader
 
 this web can help you to manage the new font download and the whole process of @font-face using on your website
+
+CHAPTER 09 TRANSITION AND ANIMATIONS
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+
+all properties that support transition and animations
+
+Ceaser by Matthew Lein
+https://matthewlein.com/tools/ceaser
+•
+cubic-bezier.com by Lea Verou
+https://cubic-bezier.com
+
+resources for cubic-bezier functions
+
+https://csstriggers.com
+css performance

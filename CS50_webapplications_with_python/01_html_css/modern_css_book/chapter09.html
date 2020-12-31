@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chapter 09 Transition and animation</title>
+    </head>
+    <body>
+        <style>
+            .container {
+                margin: 2rem;
+                text-align: center;
+                width:20rem;
+            }
+            input.fancy-btn {
+                background: #f1f1f1;
+                transition: transform 1000ms 0ms,
+                background-color 1000ms 1000ms;
+                /* border-radius 1000ms 2000ms; */
+                transition-timing-function: cubic-bezier(1.000, -0.600, 0.000, 1.650)
+                
+                 
+            }
+            input.fancy-btn:hover { 
+                background:red;
+                /* border-radius: 10px; */
+                transform: translatex(2rem) scale(3.5);
+                
+            }
+        </style>
+        <div class="container">
+            <p>testing fancy button</p>
+            <input class="fancy-btn" type="button" value="Fancy Button">
+        </div>
+        <div class="container">
+            <p>testing fancy button</p>
+            <input class="fancy-btn2" type="button" value="Fancy Button">
+        </div>
+        <style>
+            
+            @keyframes test {
+                0% {
+                    /* background-color:white; */
+                    transform: scale(1);
+                    border-radius: 0px;
+                }
+                50% {
+                    background-color:chartreuse;
+                    transform: scale(2);
+                    border-radius: 10px;
+                }
+                100% {
+                    background-color:red;
+                    transform:scale(1);
+                }
+            }
+            input.fancy-btn2:hover {
+                background-color:red;
+                animation: test 5s;
+            }
+        </style>
+
+        <div class="circle-mov">
+            <div class="intern"></div>
+        </div>
+        <style>
+            .intern {
+                width:1rem;
+                height: 1rem;
+                margin:auto;
+                border:1px solid grey;
+                border-radius: 50%;
+                box-shadow: 2px 2px 5px black;
+            }
+            .circle-mov {
+                width: 10rem;
+                height:10rem;
+                margin:2rem;
+                /* background:red; */
+                /* border:2px solid red; */
+                animation: circle-mov 3s backwards ;
+                position: relative;
+            }
+            @keyframes circle-mov {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+        </div>
+    </body>
+</html>

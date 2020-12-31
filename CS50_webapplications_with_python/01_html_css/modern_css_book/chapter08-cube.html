@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>create a cupe</title>
+</head>
+
+<body>
+    <style>
+        .container {
+            width: 10rem;
+            height: 10rem;
+            perspective: 500px;
+            margin: 5rem;
+        }
+
+        .cube {
+            position: relative;
+            width: 10rem;
+            height: 10rem;
+            transform-style: preserve-3d;
+            transform: rotate3d(1, 1, 0, 45deg);
+        }
+        .front {
+            transform: translatez(5rem);
+        }
+        .face {
+            width: 10rem;
+            height: 10rem;
+            background: skyblue;
+            border: 2px solid black;
+            position: absolute;
+            opacity: 0.4;
+            text-align: center;
+        }
+
+        .back {
+            transform: rotateY(180deg) translatez(5rem);
+        }
+
+        .left {
+            transform: rotateY(-90deg) translatez(5rem);
+        }
+
+        .right {
+            transform: rotateY(90deg) translatez(5rem);
+        }
+
+        .top {
+            transform: rotateX(90deg) translatez(5rem);
+        }
+
+        .bottom {
+            transform: rotateX(-90deg) translatez(5rem);
+        }
+
+    </style>
+    <div class="container">
+        <div class="cube">
+            <div class="face top">Top</div>
+            <div class="face bottom">bottom</div>
+            <div class="face left">left</div>
+            <div class="face right">right</div>
+            <div class="face front">front</div>
+            <div class="face back">back</div>
+
+        </div>
+    </div>
+</body>
+
+</html>
