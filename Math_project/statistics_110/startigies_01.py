@@ -336,10 +336,15 @@ def exercise_1_17():
     
     
     
-exercise_1_17()
+# exercise_1_17()
 
 # for i in range(2,10):
 #     print(f'{i} comb({2*i},{i}) = {comb(2*i,i)}')
 
 
+def question_19(n=5,k=2):
+    base = list(range(1,n+1))
+    cmb = [a for a in combinations(base, k)]
+    fprint(cmb)
 
+question_19(6,4)

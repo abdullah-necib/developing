@@ -1,9 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>FLEXBOX</title>
-    </head>
-    <body>
-        
-    </body>
+
+<head>
+    <title>FLEXBOX</title>
+</head>
+
+<body>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid black;
+            /* overflow:auto; */
+            width:80rem;
+            flex-wrap:wrap;
+            /* writing-mode:horizontal-tb; */
+            justify-content:space-around;
+        }
+
+       .item{
+            background: rebeccapurple;
+            font-size: 2rem;
+            padding: 2rem;
+            color: white;
+            width: 30rem;
+            text-align: center;
+            height: 10rem;
+            /* line-height: 10rem; */
+            border: 3px solid red;
+            padding: 1rem;
+            margin: 1rem;
+            /* overflow:auto; */
+            /* flex-grow: 1; */
+            order:2;
+        }
+
+        .item2 {
+            background: skyblue;
+            order:1;
+        }
+
+        .item3 {
+            background: orange;
+            order:1;
+        }
+
+        .item4 {
+            background: red;
+            border-color:black;
+        }
+    </style>
+    <div class="container">
+        <div class="item item1">long item line no 1</div>
+        <div class="item item2">long item line no 2</div>
+        <div class="item item3">long item line no 3</div>
+        <div class="item item4">long item line no 4</div>
+        <!-- <div class="item1">long item line no 1</div>
+        <div class="item2">long item line no 2</div>
+        <div class="item3">long item line no 3</div>
+        <div class="item1">long item line no 1</div>
+        <div class="item2">long item line no 2</div>
+        <div class="item3">long item line no 3</div>
+        <div class="item1">long item line no 1</div>
+        <div class="item2">long item line no 2</div>
+        <div class="item3">long item line no 3</div> -->
+     
+    </div>
+
+</body>
+
 </html>
