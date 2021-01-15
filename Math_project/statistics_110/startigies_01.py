@@ -128,6 +128,7 @@ def rBall_nBox(r,n):
     base = [x for x in range(r+1)]
     main_space = [list(x) for x in product(base,repeat = n) if sum(list(x))== r]
     fprint(main_space)
+    return main_space
 
 
 # for i in range(2,6):
@@ -345,6 +346,70 @@ def exercise_1_17():
 def question_19(n=5,k=2):
     base = list(range(1,n+1))
     cmb = [a for a in combinations(base, k)]
-    fprint(cmb)
+    # fprint(cmb)
+    cnt =1
+    middle_numbers = [a[2] for a in cmb]
+    summary = []
+    for a in middle_numbers:
+        if a not in summary:
+            summary.append(a)
+    for i in cmb:
+        print(f'{cnt} >> {i}   >> {i[2]}')
+        cnt +=1
+    for a in summary:
+        print(f' {a} appears: {middle_numbers.count(a)}')
 
-question_19(6,4)
+
+# question_19(10,5)
+
+
+def question_20a(n=6,k=2):
+    x = list(range(1,n+1))
+    cmb = [a for a in combinations(x,k)]
+    last_numbers = [a[-1]  for a in cmb]
+    summary = []
+    cnt = 1
+    for a in last_numbers:
+        if a not in summary:
+            summary.append(a)
+    for i in cmb:
+        print(f'{cnt} >> {i}   >> {i[-1]}')
+        cnt +=1
+    for a in summary:
+        print(f' {a} appears: {last_numbers.count(a)}')       
+ 
+        
+# question_20a(5,3)
+
+def question_20a_abd(n=6,k=2):
+    x = list(range(1,n+1))
+    cmb = [a for a in combinations(x,k)]
+    first_numbers = [a[0]  for a in cmb]
+    summary = []
+    cnt = 1
+    for a in first_numbers:
+        if a not in summary:
+            summary.append(a)
+    for i in cmb:
+        print(f'{cnt} >> {i}   >> {i[0]}')
+        cnt +=1
+    for a in summary:
+        print(f' {a} appears: {first_numbers.count(a)}')  
+        
+# question_20a_abd(5,2)
+# rBall_nBox(5, 3)
+result =0
+n,r,k = 5,4,3
+for i in range(0,r+1):
+    temp = comb(n+i,k+i)
+    print(f'C({n+i},{k+i}) is {temp}')
+    result += temp
+print(f'for n={n}, r={r}, k={k} result is: {result}')
+print(__file__)
+print('\n\n\n')
+
+cnt =1
+for i in rBall_nBox(6, 3):
+    if i.count(6) == 0:
+        print(f'{cnt} >> {i}')
+        cnt +=1
