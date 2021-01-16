@@ -1,4 +1,4 @@
 chapter 04 diving into git
 https://github.com/github/gitignore
 
-for ignore list specifiers
+for ignore list specifiers truch you can use this link : https://git-scm.com/docs/gitignore
