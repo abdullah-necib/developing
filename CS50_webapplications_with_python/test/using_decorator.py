@@ -31,5 +31,5 @@ def func1():
 
 func1()   
 my_funtion(100)
-print('length of the str is: ', len('f6c52f74efb90d1cf77942b4df93d8b5f4581cff'))
-print('length of the str is: ', len('a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'))
+print('length of the string length is: ', len('f6c52f74efb90d1cf77942b4df93d8b5f4581cff'))
+print('length of the string length is: ', len('a94a8fe5ccb19ba61c4c0873d391e987982fbbd3'))
