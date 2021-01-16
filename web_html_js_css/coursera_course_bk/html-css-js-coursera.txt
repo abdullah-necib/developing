@@ -1,0 +1,27 @@
+ 
+https://github.com/jhu-ep-coursera/fullstack-course4
+
+#to start from specific folder
+browser-sync start --server --directory --files "*"
+
+stackoverflow.com
+
+site to write a code and share it with  jsfiddle.net
+
+browser deleoping remoteley :  https://codepen.io/
+website from codepen owner with greate resource    https://css-tricks.com/
+
+lecture 2:
+
+1- wwww.wec.org/TR/html5/ 
+2- caniuse.com keep track html css js standards (which browser support what)
+3- validator.w3x.org/ -- to check validation
+4- browser statistics from www.w3schools.com
+
+lecture 4 
+validating website:
+https://validator.w3.org/#validate_by_uri
+
+lecture 5
+to explore more about kinds of contents:
+https://www.w3.org/TR/2011/WD-html5-20110525/content-models.html
