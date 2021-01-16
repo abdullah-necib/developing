@@ -1,0 +1,4 @@
+chapter 04 diving into git
+https://github.com/github/gitignore
+
+for ignore list specifiers
