@@ -398,18 +398,43 @@ def question_20a_abd(n=6,k=2):
         
 # question_20a_abd(5,2)
 # rBall_nBox(5, 3)
-result =0
-n,r,k = 5,4,3
-for i in range(0,r+1):
-    temp = comb(n+i,k+i)
-    print(f'C({n+i},{k+i}) is {temp}')
-    result += temp
-print(f'for n={n}, r={r}, k={k} result is: {result}')
-print(__file__)
-print('\n\n\n')
+# =============================================================================
+# question No 20 start
+# =============================================================================
+# result =0
+# n,r,k = 5,4,3
+# for i in range(0,r+1):
+#     temp = comb(n+i,k+i)
+#     print(f'C({n+i},{k+i}) is {temp}')
+#     result += temp
+# print(f'for n={n}, r={r}, k={k} result is: {result}')
+# print(__file__)
+# print('\n\n\n')
 
-cnt =1
-for i in rBall_nBox(6, 3):
-    if i.count(6) == 0:
-        print(f'{cnt} >> {i}')
-        cnt +=1
+# cnt =1
+# for i in rBall_nBox(6, 3):
+#     if i.count(6) == 0:
+#         print(f'{cnt} >> {i}')
+#         cnt +=1
+        
+# =============================================================================
+# question 20 finish        
+# =============================================================================
+
+
+def question21(n,k):
+    if k==1 or n==k : 
+        return 1
+    else: 
+        return question21(n-1,k-1) + (k * question21(n-1,k))
+    
+    
+print(question21(3,2))   
+
+a = 10
+result = 0
+for i in range(1,a+1): 
+    result += i**3
+    
+print(result)
+print((a*(a+1)/2)**2)
