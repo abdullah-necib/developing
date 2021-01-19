@@ -429,12 +429,18 @@ def question21(n,k):
         return question21(n-1,k-1) + (k * question21(n-1,k))
     
     
-print(question21(3,2))   
+# print(question21(6,2))   
 
-a = 10
-result = 0
-for i in range(1,a+1): 
+from itertools import combinations_with_replacement
+
+base = [x for x in combinations_with_replacement(list(range(1,6)), 3)]
+# fprint(base)
+
+n = 10
+result =0
+for i in range(1,n+1):
     result += i**3
-    
+
 print(result)
-print((a*(a+1)/2)**2)
+f= lambda x: 6* comb(x+1,4) + 6* comb(x+1,3) + comb(x+1,2)
+print('result is: ',f(10))
