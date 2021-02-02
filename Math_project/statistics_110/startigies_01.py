@@ -712,4 +712,5 @@ question39(8,10,2)
 
 n,k,j = 6,6,2
 print(comb(n,j)*(2**(k-2*j))*comb(n-j,n+j-k))
+# add comment for cheking what is done using git
 print('------ done -------------')
