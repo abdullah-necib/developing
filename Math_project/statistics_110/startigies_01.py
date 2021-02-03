@@ -708,9 +708,41 @@ def question39(n=6,k=6,j=2):
     couples = [a for a in base if count_couples(a) == j]
     fprint(couples)
 
-question39(8,10,2)
+# question39(8,10,2)
 
-n,k,j = 6,6,2
-print(comb(n,j)*(2**(k-2*j))*comb(n-j,n+j-k))
+# n,k,j = 6,6,2
+# print(comb(n,j)*(2**(k-2*j))*comb(n-j,n+j-k))
 # add comment for cheking what is done using git
+
+def counting_elements_in_list(a):
+    """count how many different element in a list"""
+    counted = []
+    for i in a:
+        if i in counted : continue
+        else:
+            counted.append(i)
+    return len(counted)
+
+def question40(n=4,k=3):
+    experiment = [a for a in combinations_with_replacement(range(1,n+1),k)]
+    print(f'the whole experiment for {k} elements\nfrom {n} elements with replacement')
+    fprint(experiment)
+    print('ANALAYSING THE RESULT')
+    print(30*'-')
+    for i in range(1,k+1):
+        print(f'sets that include {i} elements:')
+        fprint([a for a in experiment if counting_elements_in_list(a) == i])
+
+question40(4,4)
+
+
+
+
+
+
+
+
+
+
+
 print('------ done -------------')
