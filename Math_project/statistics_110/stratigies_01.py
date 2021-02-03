@@ -104,24 +104,23 @@ def question_2():
                 return False
         return result
 
-    def test_b(item):
-        result = True
-        string = ''.join(item)
-        # print(string)
-        if string.count('A') != 1:
-            return False
-        cond = []
-        for element in item:
-            if element[-1] == 'A':
-                item.remove(element)
-            else:
-                cond.append(element[0])
+    # def test_b(item):
+    #     result = True
+    #     string = ''.join(item)
+    #     # print(string)
+    #     if string.count('A') != 1:
+    #         return False
+    #     cond = []
+    #     for element in item:
+    #         if element[-1] == 'A':
+    #             item.remove(element)
+    #         else:
+    #             cond.append(element[0])
+    #     cond.sort()
+    #     if cond not in use2of4type:
+    #         return False
+    #     return result
 
-        cond.sort()
-        if cond not in use2of4type:
-            return False
-
-        return result
     event_a = [x for x in space if test_a(x)]
     # fprint(event_a)
     print(len(event_a)/len(space))
@@ -510,10 +509,10 @@ def contains(container, includer, k):
     """used for testing if [1,2,3,4] contains [a,b] or not 
     used in question31(N,n,m,k)
     result is True / False"""
-    cnt=0
+    cnt = 0
     for i in includer:
         if container.count(i) != 0:
-            cnt +=1
+            cnt += 1
     if cnt >= k:
         return True
     return False
@@ -557,6 +556,7 @@ def question31(N=10, n=7, m=5, k=2):
                     result.append(temp)
     return result
 
+
 def question31_not_exactly(N=10, n=7, m=5, k=2):
     N, n, m, k = N, n, m, k
     # result1 = comb(n, k) * comb(N-n, m-k)
@@ -570,13 +570,14 @@ def question31_not_exactly(N=10, n=7, m=5, k=2):
         for m in base_m:
             for n in base_n:
                 temp = []
-                if contains(n,m,k):
+                if contains(n, m, k):
                     temp.append(m)
                     temp.append(n)
                     logfile.write(f'{cnt} >> m is: {m} / n is: {n}\n')
                     cnt += 1
                     result.append(temp)
     return result
+
 
 """this is used for testing purpose for question31 function"""
 # N,n,m,k = 10, 7, 5, 3
@@ -599,28 +600,28 @@ def question35():
         for a in lst:
             temp.append(a[0])
         for i in temp:
-            if temp.count(i) not in (2,4) :
+            if temp.count(i) not in (2, 4):
                 return False
         return True
 
     n = 8
-    numbers = list(range(1,n+1))
-    types = ['A','B','C']
+    numbers = list(range(1, n+1))
+    types = ['A', 'B', 'C']
     base = [t+str(n) for n in numbers for t in types]
-    sample_space = [x for x in combinations(base,n)]
+    sample_space = [x for x in combinations(base, n)]
     # print(len(sample_space))
     experiment = [list(a) for a in sample_space if verify(a)]
     # fprint(experiment)
 
     cnt = 1
-    with open('question35.log','w') as f:
+    with open('question35.log', 'w') as f:
         for i in experiment:
             f.write(f'{cnt} {i}\n')
-            cnt +=1
+            cnt += 1
     print(cnt-1)
     return experiment
 
-    
+
 # this was added because of for number 8 we may have 2-2-4/3-3-2/4-4
 # i forget about 4-4 so the number wasn't correct
 
@@ -643,9 +644,9 @@ def question35():
 # print(a/(6**30))
 
 def question37():
-    n=4
-    base= [c+str(i) for c in ('A','B') for i in range(1,n+1)]
-    base_factorial = [list(a) for a in permutations(base,8)]
+    n = 4
+    base = [c+str(i) for c in ('A', 'B') for i in range(1, n+1)]
+    base_factorial = [list(a) for a in permutations(base, 8)]
     base = []
     for i in base_factorial:
         temp = i[0:i.index('A1')]
@@ -653,15 +654,13 @@ def question37():
             temp = temp[0:i.index('B1')]
         if temp not in base:
             base.append(temp)
-    with open('question37.log','w') as f:
+    with open('question37.log', 'w') as f:
         for i in base:
             f.write(f'{i}\n')
     return base
 
 
-
-            
-test =question37()
+# test = question37()
 # result=0
 # for i in range(0,49):
 #     print(f'{i} perm(49,{i}) is {perm(49,i)}')
@@ -683,28 +682,31 @@ test =question37()
 #     print(f'{i+1} for i={i} P is: {comb(36,i)/comb(48,i)}')
 
 
-def contiguity(lst, a,b):
-    if lst.index(a) == lst.index(b) + 1 or lst.index(a) +1 == lst.index(b): return True
+def contiguity(lst, a, b):
+    if lst.index(a) == lst.index(b) + 1 or lst.index(a) + 1 == lst.index(b):
+        return True
     return False
 
-def question38(n=4,x=1,y=2):    
-    base = [a for a in range(1,n+1)]
-    exp = [a for a in permutations(base,n)]
-    contiguity_list = [a for a in exp if contiguity(a,x,y)]
+
+def question38(n=4, x=1, y=2):
+    base = [a for a in range(1, n+1)]
+    exp = [a for a in permutations(base, n)]
+    contiguity_list = [a for a in exp if contiguity(a, x, y)]
     # fprint(contiguity_list)
     print(len(contiguity_list))
-    
+
 
 # question38(10,1,2)
 def count_couples(a):
-    couples=0
+    couples = 0
     for i in a:
-        if i%2 == 1 and i+1 in a:
-            couples +=1
+        if i % 2 == 1 and i+1 in a:
+            couples += 1
     return couples
 
-def question39(n=6,k=6,j=2):
-    base = [a for a in combinations(list(range(1,2*n+1)),k)]
+
+def question39(n=6, k=6, j=2):
+    base = [a for a in combinations(list(range(1, 2*n+1)), k)]
     couples = [a for a in base if count_couples(a) == j]
     fprint(couples)
 
@@ -714,35 +716,31 @@ def question39(n=6,k=6,j=2):
 # print(comb(n,j)*(2**(k-2*j))*comb(n-j,n+j-k))
 # add comment for cheking what is done using git
 
+
 def counting_elements_in_list(a):
     """count how many different element in a list"""
     counted = []
     for i in a:
-        if i in counted : continue
+        if i in counted:
+            continue
         else:
             counted.append(i)
     return len(counted)
 
-def question40(n=4,k=3):
-    experiment = [a for a in combinations_with_replacement(range(1,n+1),k)]
-    print(f'the whole experiment for {k} elements\nfrom {n} elements with replacement')
+
+def question40(n=4, k=3):
+    experiment = [a for a in combinations_with_replacement(range(1, n+1), k)]
+    print(
+        f'the whole experiment for {k} elements\nfrom {n} elements with replacement')
     fprint(experiment)
     print('ANALAYSING THE RESULT')
     print(30*'-')
-    for i in range(1,k+1):
+    for i in range(1, k+1):
         print(f'sets that include {i} elements:')
         fprint([a for a in experiment if counting_elements_in_list(a) == i])
 
-question40(4,4)
 
-
-
-
-
-
-
-
-
+question40(4, 4)
 
 
 print('------ done -------------')
